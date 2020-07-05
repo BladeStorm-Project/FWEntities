@@ -19,6 +19,7 @@ use fwentities\entities\Title;
 use fwentities\entities\Locker;
 use fwentities\entities\DustShop;
 use fwentities\entities\Booster;
+use pocketmine\entity\Entity;
 
 class Main extends PluginBase implements Listener{
 
@@ -30,6 +31,7 @@ class Main extends PluginBase implements Listener{
 
     public function onEnable(){
         $this->getLogger()->info("§aFWEntities enabled");
+        $this->loadEntitys();
     }
 
     public static function getInstance() : self {
@@ -75,6 +77,14 @@ class Main extends PluginBase implements Listener{
                 }
         }
         return true;
+    }
+
+    public function loadEntitys() : void {
+        $values = [Title::class, Locker::class, DustShop::class, Booster::class];
+        foreach ($values as $entitys) {
+            Entity::registerEntity($entitys, true);
+        }
+        unset ($values);
     }
 
 
