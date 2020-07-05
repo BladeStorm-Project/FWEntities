@@ -86,6 +86,31 @@ class Main extends PluginBase implements Listener{
         }
         unset ($values);
     }
+    
+    public function onDamageNPC(EntityDamageByEntityEvent $event) {
+        $npc = $event->getEntity();
+        $player = $event->getDamager();
+
+        if($npc instanceof Title){
+            $event->setCancelled(true);
+        }
+
+        if($npc instanceof Locker){
+
+            $event->setCancelled(true);
+            $this->getServer()->dispatchCommand(new ConsoleCommandSender(), "locker");
+        }
+
+        if($npc instanceof DustShop){
+            $event->setCancelled(true);
+            $this->getServer()->dispatchCommand(new ConsoleCommandSender(), "dustshop");
+        }
+
+        if($npc instanceof Booster){
+            $event->setCancelled(true);
+            $this->getServer()->dispatchCommand(new ConsoleCommandSender(), "booster");
+        }
+    }    
 
 
 }
