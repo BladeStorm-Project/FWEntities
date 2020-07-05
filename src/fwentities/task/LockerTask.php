@@ -6,6 +6,13 @@ use fwentities\{Main, entities\Locker};
 use pocketmine\{Server, Player, utils\TextFormat as Color, entity\Effect, entity\EffectInstance, scheduler\Task};
 
 class LockerTask extends Task {
+    
+    public $plugin;
+
+    public function __construct(Main $plugin){
+        $this->plugin = $plugin;
+    }
+    
     public function onRun(int $currentTick) : void {
         foreach (Server::getInstance()->getDefaultLevel()->getEntities() as $entity) {
             if ($entity instanceof Locker) {
