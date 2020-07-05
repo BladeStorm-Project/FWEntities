@@ -41,7 +41,7 @@ class Main extends PluginBase implements Listener{
 
     public function onCommand(CommandSender $sender, Command $cmd, String $label, array $args): bool{
         switch($cmd->getName()){
-            case "fwentities":
+            case "fwentity":
                 if($sender instanceof Player) {
                     if($sender->hasPermission("fwentities.use")){
                         if($args[0]=="title"){
