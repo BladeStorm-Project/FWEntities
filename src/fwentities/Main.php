@@ -87,10 +87,10 @@ class Main extends PluginBase implements Listener{
         unset ($values);
     }
     
-    public function onDamageNPC(EntityDamageByEntityEvent $event) {
+    public function onDamageNPC(EntityDamageByEntityEvent $event)
+    {
         $npc = $event->getEntity();
         $player = $event->getDamager();
-
         if($npc instanceof Title){
             $event->setCancelled(true);
         }
@@ -102,6 +102,7 @@ class Main extends PluginBase implements Listener{
         }
 
         if($npc instanceof DustShop){
+
             $event->setCancelled(true);
             $this->getServer()->dispatchCommand(new ConsoleCommandSender(), "dustshop");
         }
@@ -110,7 +111,7 @@ class Main extends PluginBase implements Listener{
             $event->setCancelled(true);
             $this->getServer()->dispatchCommand(new ConsoleCommandSender(), "booster");
         }
-    }    
+    }   
 
 
 }
