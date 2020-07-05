@@ -48,7 +48,7 @@ final class EntityManager {
     public function setLocker(Player $player) {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
-        $human = new Title($player->getLevel(), $nbt);
+        $human = new Locker($player->getLevel(), $nbt);
         $this->setSkins($human, 'Locker');
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
@@ -60,7 +60,7 @@ final class EntityManager {
     public function setDustShop(Player $player) {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
-        $human = new Title($player->getLevel(), $nbt);
+        $human = new DustShop($player->getLevel(), $nbt);
         $this->setSkins($human, 'DustShop');
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
@@ -72,7 +72,7 @@ final class EntityManager {
     public function setBooster(Player $player) {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
-        $human = new Title($player->getLevel(), $nbt);
+        $human = new Booster($player->getLevel(), $nbt);
         $this->setSkins($human, 'Booster');
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
