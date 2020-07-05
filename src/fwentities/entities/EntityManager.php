@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Samuel
- * Date: 04/07/2020
- * Time: 18:24
- */
-
 namespace fwentities\entities;
 use fwentities\{Main, entities\Locker, entities\DustShop, entities\Booster, entities\Title};
 use pocketmine\{Server, Player, utils\TextFormat as Color, level\Level, entity\Entity, math\Vector3, entity\Skin};
