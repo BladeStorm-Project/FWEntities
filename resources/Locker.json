@@ -1,0 +1,52 @@
+{
+	"geometry.Locker": {
+		"texturewidth": 128,
+		"textureheight": 128,
+		"visible_bounds_width": 3,
+		"visible_bounds_height": 1,
+		"visible_bounds_offset": [0, 0.5, 0],
+		"bones": [
+			{
+				"name": "body",
+				"pivot": [-0.5, 19, 3],
+				"cubes": [
+					{"origin": [-4, 12, -2], "size": [7, 7, 10], "uv": [0, 0]},
+					{"origin": [-0.5, 15, 8], "size": [0, 1, 2], "uv": [26, 7]},
+					{"origin": [1, 17, -5], "size": [0, 2, 3], "uv": [3, 3]},
+					{"origin": [-2, 17, -5], "size": [0, 2, 3], "uv": [2, 0]}
+				]
+			},
+			{
+				"name": "jacket",
+				"parent": "body",
+				"pivot": [-0.5, 19, 3],
+				"rotation": [30, 0, 0],
+				"cubes": [
+					{"origin": [-2, 12, -2], "size": [1, 2, 0], "uv": [30, 1]},
+					{"origin": [0, 12, -2], "size": [1, 2, 0], "uv": [30, 1]},
+					{"origin": [1, 10, 1], "size": [1, 2, 0], "uv": [30, 1]},
+					{"origin": [-3, 10, 1], "size": [1, 2, 0], "uv": [30, 1]},
+					{"origin": [1, 11, -1], "size": [1, 2, 0], "uv": [30, 1]},
+					{"origin": [-3, 11, -1], "size": [1, 2, 0], "uv": [30, 1]}
+				]
+			},
+			{
+				"name": "leftArm",
+				"pivot": [3, 18.5, 3],
+				"rotation": [0, 100, 0],
+				"cubes": [
+					{"origin": [-1, 19, 2], "size": [7, 0, 6], "uv": [9, 24], "mirror": true}
+				]
+			},
+			{
+				"name": "rightLeg",
+				"pivot": [-3, 18.5, 3],
+				"rotation": [0, -100, 0],
+				"mirror": true,
+				"cubes": [
+					{"origin": [-6, 19, 3], "size": [7, 0, 6], "uv": [2, 18]}
+				]
+			}
+		]
+	}
+}

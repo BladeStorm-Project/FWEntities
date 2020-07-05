@@ -1,0 +1,9 @@
+name: FWEntities
+api: 3.0.0
+version: 1.0
+main: fwentities\Main
+author: FireworkMC Team
+
+commands:
+ fwentity:
+  description: fw entity spawner
