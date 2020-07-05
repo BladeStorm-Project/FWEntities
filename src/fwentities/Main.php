@@ -20,6 +20,9 @@ use fwentities\entities\Locker;
 use fwentities\entities\DustShop;
 use fwentities\entities\Booster;
 use pocketmine\entity\Entity;
+use fwentities\task\LockerTask;
+use fwentities\task\DustShopTask;
+use fwentities\task\BoosterTask;
 
 class Main extends PluginBase implements Listener{
 
@@ -30,6 +33,10 @@ class Main extends PluginBase implements Listener{
     }
 
     public function onEnable(){
+        $this->getScheduler()->scheduleRepeatingTask(new TitleTask($this), 20);
+        $this->getScheduler()->scheduleRepeatingTask(new LockerTask($this), 20);
+        $this->getScheduler()->scheduleRepeatingTask(new DustShopTask($this), 20);
+        $this->getScheduler()->scheduleRepeatingTask(new BoosterTask($this), 20);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->getLogger()->info("§aFWEntities enabled");
         $this->loadEntitys();
