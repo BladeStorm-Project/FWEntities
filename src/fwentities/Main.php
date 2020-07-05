@@ -73,7 +73,7 @@ class Main extends PluginBase implements Listener{
                             return true;
                         }
                     }else{
-                        $sender->sendMessage("§l§cFWMC§r§7: §4No permission tu use this command.");
+                        $sender->sendMessage("§l§cFWMC§r§7: §4No permission to use this command.");
                     }
                 }
         }
