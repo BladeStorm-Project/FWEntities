@@ -10,7 +10,7 @@ final class EntityManager {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
         $human = new Title($player->getLevel(), $nbt);
-        $human->setSkin(new Skin($player->getSkin()->getSkinId(), $human));
+        $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
         $human->yaw = $player->getYaw();
@@ -22,7 +22,7 @@ final class EntityManager {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
         $human = new Locker($player->getLevel(), $nbt);
-        $human->setSkin(new Skin($player->getSkin()->getSkinId(), $human));
+        $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
         $human->yaw = $player->getYaw();
@@ -34,7 +34,7 @@ final class EntityManager {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
         $human = new DustShop($player->getLevel(), $nbt);
-        $human->setSkin(new Skin($player->getSkin()->getSkinId(), $human));
+        $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
         $human->yaw = $player->getYaw();
@@ -46,7 +46,7 @@ final class EntityManager {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
         $human = new Booster($player->getLevel(), $nbt);
-        $human->setSkin(new Skin($player->getSkin()->getSkinId(), $human));
+        $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
         $human->yaw = $player->getYaw();
