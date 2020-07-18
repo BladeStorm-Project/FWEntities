@@ -92,4 +92,40 @@ final class EntityManager {
         $human->pitch = $player->getPitch();
         $human->spawnToAll();
     }
+
+    public function setTNTTag(Player $player) {
+        $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
+        $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
+        $human = new TNTTag($player->getLevel(), $nbt);
+        $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
+        $human->setNameTagVisible(true);
+        $human->setNameTagAlwaysVisible(true);
+        $human->yaw = $player->getYaw();
+        $human->pitch = $player->getPitch();
+        $human->spawnToAll();
+    }
+
+    public function setDragons(Player $player) {
+        $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
+        $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
+        $human = new Dragons($player->getLevel(), $nbt);
+        $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
+        $human->setNameTagVisible(true);
+        $human->setNameTagAlwaysVisible(true);
+        $human->yaw = $player->getYaw();
+        $human->pitch = $player->getPitch();
+        $human->spawnToAll();
+    }
+
+    public function setQuake(Player $player) {
+        $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
+        $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
+        $human = new Quake($player->getLevel(), $nbt);
+        $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
+        $human->setNameTagVisible(true);
+        $human->setNameTagAlwaysVisible(true);
+        $human->yaw = $player->getYaw();
+        $human->pitch = $player->getPitch();
+        $human->spawnToAll();
+    }
 }
