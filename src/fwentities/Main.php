@@ -8,6 +8,12 @@
 
 namespace fwentities;
 
+use fwentities\entities\Dragons;
+use fwentities\entities\Quake;
+use fwentities\entities\TNTTag;
+use fwentities\task\DragonsTask;
+use fwentities\task\QuakeTask;
+use fwentities\task\TNTTagTask;
 use pocketmine\command\ConsoleCommandSender;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
@@ -26,6 +32,8 @@ use fwentities\task\LockerTask;
 use fwentities\task\DustShopTask;
 use fwentities\task\BoosterTask;
 use pocketmine\entity\Entity;
+use libpmquery\PMQuery;
+use libpmquery\PmQueryException;
 
 class Main extends PluginBase implements Listener{
 
@@ -43,6 +51,9 @@ class Main extends PluginBase implements Listener{
         $this->getScheduler()->scheduleRepeatingTask(new LockerTask($this), 20);
         $this->getScheduler()->scheduleRepeatingTask(new DustShopTask($this), 20);
         $this->getScheduler()->scheduleRepeatingTask(new BoosterTask($this), 20);
+        $this->getScheduler()->scheduleRepeatingTask(new DragonsTask($this), 20);
+        $this->getScheduler()->scheduleRepeatingTask(new QuakeTask($this), 20);
+        $this->getScheduler()->scheduleRepeatingTask(new TNTTagTask($this), 20);
     }
 
     public static function getInstance() : self {
@@ -85,6 +96,27 @@ class Main extends PluginBase implements Listener{
                         if($args[0]=="dab"){
                             $entity = new EntityManager();
                             $entity->setDab($sender);
+                            $sender->sendMessage("§l§cFWMC§r§7: §aSpawned Entity");
+                            return true;
+                        }
+
+                        if($args[0]=="tnttag"){
+                            $entity = new EntityManager();
+                            $entity->setTNTTag($sender);
+                            $sender->sendMessage("§l§cFWMC§r§7: §aSpawned Entity");
+                            return true;
+                        }
+
+                        if($args[0]=="dragons"){
+                            $entity = new EntityManager();
+                            $entity->setDragons($sender);
+                            $sender->sendMessage("§l§cFWMC§r§7: §aSpawned Entity");
+                            return true;
+                        }
+
+                        if($args[0]=="quake"){
+                            $entity = new EntityManager();
+                            $entity->setQuake($sender);
                             $sender->sendMessage("§l§cFWMC§r§7: §aSpawned Entity");
                             return true;
                         }
@@ -148,7 +180,7 @@ class Main extends PluginBase implements Listener{
     }
 
     public function loadEntitys() : void {
-        $values = [Duels::class, Locker::class, DustShop::class, Booster::class];
+        $values = [Duels::class, Locker::class, DustShop::class, Booster::class, Dragons::class, TNTTag::class, Quake::class];
         foreach ($values as $entitys) {
             Entity::registerEntity($entitys, true);
         }
@@ -194,4 +226,15 @@ class Main extends PluginBase implements Listener{
             }
         }
     }
+
+    public function serverPlayers($ip, $port)
+    {
+        try {
+            $online = PMQuery::query($ip, $port)['Players'];
+            $this->online = $online;
+        }catch(PmQueryException $e){
+            $offline = "Server offline";
+        }
+    }
+
 }
