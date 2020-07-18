@@ -1,2 +1,9 @@
 # FWEntities
-Entities of Firework HUB (not TNTTag & SkyWars)
+All FireworkMC Entities
+
+### Usage
+
+/fwentity (entity) -> spawn an Entity
+/fwentity remove (entity) -> remove an Entity
+
+
