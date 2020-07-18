@@ -121,6 +121,33 @@ class Main extends PluginBase implements Listener{
                             return true;
                         }
 
+                        if($args[0]=="remove" && $args[1]=="tnttag") {
+                            foreach ($sender->getLevel()->getEntities() as $entity) {
+                                if ($entity instanceof TNTTag) {
+                                    $entity->kill();
+                                    $sender->sendMessage("§l§cFWMC§r§7: §aRemoved Entity");
+                                }
+                            }
+                        }
+
+                        if($args[0]=="remove" && $args[1]=="dragons") {
+                            foreach ($sender->getLevel()->getEntities() as $entity) {
+                                if ($entity instanceof Dragons) {
+                                    $entity->kill();
+                                    $sender->sendMessage("§l§cFWMC§r§7: §aRemoved Entity");
+                                }
+                            }
+                        }
+
+                        if($args[0]=="remove" && $args[1]=="quake") {
+                            foreach ($sender->getLevel()->getEntities() as $entity) {
+                                if ($entity instanceof Quake) {
+                                    $entity->kill();
+                                    $sender->sendMessage("§l§cFWMC§r§7: §aRemoved Entity");
+                                }
+                            }
+                        }
+
                         if($args[0]=="remove" && $args[1]=="dab") {
                             foreach ($sender->getLevel()->getEntities() as $entity) {
                                 if ($entity instanceof Dab) {
