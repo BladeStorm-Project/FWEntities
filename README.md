@@ -1,5 +1,5 @@
 # FWEntities
-All FireworkMC Entities
+All FireworkMC Entities - API 3.0.0
 
 ### Usage
 
