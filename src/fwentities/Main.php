@@ -259,7 +259,6 @@ class Main extends PluginBase implements Listener{
         try {
             $online = PMQuery::query($ip, $port);
             $players = (int) $query['Players'];
-            Server::getInstance()->getLogger()->info($players);
         }catch(PmQueryException $e){
             Server::getInstance()->getLogger()->info("Server Offline");
         }
