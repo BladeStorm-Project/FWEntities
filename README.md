@@ -1,6 +1,5 @@
 # FWEntities
-All FireworkMC Entities - API 3.0.0
-
+All FireworkMC Entities - API 4.0.0
 ### Usage
 
 /fwentity (entity) -> spawn an Entity
