@@ -20,7 +20,7 @@ use pocketmine\event\Listener;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\event\entity\{EntityDamageEvent, EntityDamageByEntityEvent};
-use pocketmine\Player;
+use pocketmine\player\Player;
 use fwentities\entities\EntityManager;
 use fwentities\entities\Duels;
 use fwentities\entities\Locker;
@@ -266,6 +266,6 @@ class Main extends PluginBase implements Listener{
             
             return "§cServer Offline";
         }
-               
+
     }
 }

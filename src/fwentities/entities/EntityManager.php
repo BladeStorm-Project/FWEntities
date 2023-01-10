@@ -9,7 +9,7 @@
 
 namespace fwentities\entities;
 use fwentities\{Main, entities\Locker, entities\DustShop, entities\Booster, entities\Duels};
-use pocketmine\{Server, Player, utils\TextFormat as Color, level\Level, entity\Entity, math\Vector3, entity\Skin};
+use pocketmine\{Server, player\Player, utils\TextFormat as Color, world\World, entity\Entity, math\Vector3, entity\Skin};
 
 final class EntityManager {
 
@@ -36,7 +36,7 @@ final class EntityManager {
     public function setDuels(Player $player) {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
-        $human = new Duels($player->getLevel(), $nbt);
+        $human = new Duels($player->getWorld(), $nbt);
         $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
@@ -48,7 +48,7 @@ final class EntityManager {
     public function setLocker(Player $player) {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
-        $human = new Locker($player->getLevel(), $nbt);
+        $human = new Locker($player->getWorld(), $nbt);
         $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
@@ -60,7 +60,7 @@ final class EntityManager {
     public function setDustShop(Player $player) {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
-        $human = new DustShop($player->getLevel(), $nbt);
+        $human = new DustShop($player->getWorld(), $nbt);
         $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
@@ -72,7 +72,7 @@ final class EntityManager {
     public function setBooster(Player $player) {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
-        $human = new Booster($player->getLevel(), $nbt);
+        $human = new Booster($player->getWorld(), $nbt);
         $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
@@ -84,7 +84,7 @@ final class EntityManager {
     public function setDab(Player $player) {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
-        $human = new Dab($player->getLevel(), $nbt);
+        $human = new Dab($player->getWorld(), $nbt);
         $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), "geometry.humanoid.custom", file_get_contents(Main::getInstance()->getDataFolder() . 'dab.json')));
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
@@ -96,7 +96,7 @@ final class EntityManager {
     public function setTNTTag(Player $player) {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
-        $human = new TNTTag($player->getLevel(), $nbt);
+        $human = new TNTTag($player->getWorld(), $nbt);
         $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
@@ -108,7 +108,7 @@ final class EntityManager {
     public function setDragons(Player $player) {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
-        $human = new Dragons($player->getLevel(), $nbt);
+        $human = new Dragons($player->getWorld(), $nbt);
         $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);
@@ -120,7 +120,7 @@ final class EntityManager {
     public function setQuake(Player $player) {
         $nbt = Entity::createBaseNBT(new Vector3((float)$player->getX(), (float)$player->getY(), (float)$player->getZ()));
         $nbt->setTag(clone $player->namedtag->getCompoundTag('Skin'));
-        $human = new Quake($player->getLevel(), $nbt);
+        $human = new Quake($player->getWorld(), $nbt);
         $human->setSkin(new Skin($player->getSkin()->getSkinId(), $player->getSkin()->getSkinData(), $player->getSkin()->getCapeData(), $player->getSkin()->getGeometryName(), $player->getSkin()->getGeometryData()));
         $human->setNameTagVisible(true);
         $human->setNameTagAlwaysVisible(true);

@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace fwentities\task;
 use fwentities\{Main, entities\TNTTag};
-use pocketmine\{Server, Player, utils\TextFormat as Color, entity\Effect, entity\EffectInstance, scheduler\Task};
+use pocketmine\{Server, player\Player, utils\TextFormat as Color, entity\Effect, entity\EffectInstance, scheduler\Task};
 
 class TNTTagTask extends Task
 {
@@ -28,7 +28,7 @@ class TNTTagTask extends Task
         }
     }
 
-    public function setName() : string {
+    public function setName() : string {    
         $colors = [Color::AQUA . 'FWMC Classic', Color::AQUA . 'Updated!'];
         $title = Color::GREEN . Color::BOLD . '»' . Color::GRAY . 'NEW MAP §8: §9JUNGLE' . Color::GREEN . '«' . "\n";
         $subtitle1 = Color::BOLD . Color::GOLD . 'TNTTAG ' . Color::RESET . $colors[array_rand($colors)] . "\n";
