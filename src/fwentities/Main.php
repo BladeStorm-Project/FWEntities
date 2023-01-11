@@ -65,6 +65,17 @@ class Main extends PluginBase implements Listener{
             case "fwentity":
                 if($sender instanceof Player) {
                     if($sender->hasPermission("fwentities.use")){
+
+                        if($args[0] == null){
+                            $sender->sendMessage("§l§cFWMC§r§7: §aUsage: /fwentities (npcname/remove [npcname])");
+                            return true;
+                        }
+
+                        if($args[0] == "remove" && $args[1] == null){
+                            $sender->sendMessage("§l§cFWMC§r§7: §aNPC argument missing");
+                            return true;
+                        }
+
                         if($args[0]=="duels"){
                             $entity = new EntityManager();
                             $entity->setDuels($sender);
@@ -191,12 +202,6 @@ class Main extends PluginBase implements Listener{
                                 }
                             }
                         }
-
-                        if($args[0]=== null){
-                            $sender->sendMessage("§l§cFWMC§r§7: §aArgument not specified");
-                            return true;
-                        }
-
 
                     }else{
                         $sender->sendMessage("§l§cFWMC§r§7: §4No permission to use this command.");
